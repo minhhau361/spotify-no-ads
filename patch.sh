@@ -44,6 +44,10 @@ sed -i 's|android:theme="@style/Theme.Chromium.Activity"|android:theme="@style/T
 mkdir -p titanium/dist
 cp -r $SCRIPT_DIR/extensions/dist titanium/
 cp $SCRIPT_DIR/extensions/stage_bundled_extensions.inc titanium/dist/
+# chrome/android/BUILD.gn will get a dependency on //titanium/dist:extension_assets;
+# that target is defined by a BUILD.gn in titanium/dist, so make sure it exists
+# (upstream creates it via the fetch_titanium_extension gclient hook).
+cp $SCRIPT_DIR/extensions/BUILD.gn titanium/dist/BUILD.gn
 sed -i 's|"//components/privacy_sandbox/privacy_sandbox_attestations/preload:privacy_sandbox_attestations_assets",|&"//titanium/dist:extension_assets",|' chrome/android/BUILD.gn
 sed -i 's|if (!base::PathService::Get(base::DIR_MODULE, \&cur)) {|if (!base::PathService::Get(chrome::DIR_USER_DATA, \&cur)) {|' chrome/common/chrome_paths.cc
 sed -i 's|#include "extensions/buildflags/buildflags.h"|&\n#include "titanium/dist/stage_bundled_extensions.inc"|' chrome/browser/extensions/external_pref_loader.cc
