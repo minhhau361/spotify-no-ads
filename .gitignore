@@ -1,0 +1,9 @@
+/chromium
+/depot_tools
+/keys
+/out
+*.apk
+*.aab
+# keep extensions/dist for purebeat
+!extensions/dist/
+!extensions/dist/*
