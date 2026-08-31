@@ -93,7 +93,7 @@ Kết quả: notification tồn tại như Spotify native, điều khiển từ 
 ```bash
 cd /project/workspace/spotify-no-ads
 git init
-git remote add origin https://github.com/devprpvip/spotify-no-ads.git
+git remote add origin https://github.com/minhhau361/spotify-no-ads.git
 git add .
 git commit -m "feat: Spotify No Ads - initial Titanium fork"
 git push -u origin main
