@@ -34,15 +34,20 @@ jobs:
       
       - name: Update Vanadium
         run: |
+          if [ ! -d vanadium/.git ]; then
+            echo "Cloning Vanadium (submodule missing)..."
+            rm -rf vanadium
+            git clone --depth 1 https://github.com/GrapheneOS/Vanadium.git vanadium
+          fi
           cd vanadium
-          git fetch --tags
-          git checkout $(git tag | sort -V | tail -n1)
+          git fetch --tags --depth 1 || git fetch --tags
+          git checkout $(git tag | sort -V | tail -n1) || echo "checkout latest tag failed"
           cd ..
-          git add vanadium
+          git add vanadium || true
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           if ! git diff --staged --quiet; then
-            git commit -am "chore: update vanadium"
+            git commit -am "chore: update vanadium" || true
             git push || echo "push failed, maybe no permission"
           fi
 
