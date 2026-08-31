@@ -1,0 +1,27 @@
+{
+	"manifest_version": 3,
+	"name": "PureBeat Core – Không giao diện",
+	"description": "Bản lõi của PureBeat: chỉ chạy logic chặn quảng cáo trên Spotify Web Player, không popup, không badge, không vẽ gì lên trang.",
+	"version": "2.2.0",
+	"content_scripts": [
+		{
+			"js": ["content_script.js"],
+			"matches": ["https://open.spotify.com/*"],
+			"run_at": "document_start"
+		}
+	],
+	"host_permissions": ["https://open.spotify.com/*"],
+	"permissions": ["storage"],
+	"icons": {
+		"16": "icons/16.png",
+		"32": "icons/32.png",
+		"48": "icons/48.png",
+		"128": "icons/128.png"
+	},
+	"web_accessible_resources": [
+		{
+			"matches": ["https://open.spotify.com/*"],
+			"resources": ["injected/*"]
+		}
+	]
+}

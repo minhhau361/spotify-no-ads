@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="90dp"
+    android:height="90dp"
+    android:viewportWidth="90"
+    android:viewportHeight="90">
+    <!-- Spotify No Ads themed icon: green disc with black circle + 3 arcs -->
+    <path android:fillColor="#1DB954" android:pathData="M45,8 A37,37 0 1,1 45,82 A37,37 0 1,1 45,8 Z"/>
+    <path android:fillColor="#000000" android:pathData="M45,30.7 A14.3,14.3 0 1,1 45,59.3 A14.3,14.3 0 1,1 45,30.7 Z"/>
+    <path android:strokeColor="#1DB954" android:strokeWidth="2.2" android:strokeLineCap="round"
+          android:pathData="M31.5,38 Q45,33 58.5,38"/>
+    <path android:strokeColor="#1DB954" android:strokeWidth="2.0" android:strokeLineCap="round"
+          android:pathData="M32.5,43.5 Q45,39 57.5,43.5"/>
+    <path android:strokeColor="#1DB954" android:strokeWidth="1.7" android:strokeLineCap="round"
+          android:pathData="M33.5,49 Q45,45.5 56.5,49"/>
+</vector>
